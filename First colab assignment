@@ -1,0 +1,84 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNQTjZnGblKIFsaukSOHilr",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/leo-g-flores/First-Physics-Computation-Software-Applications-Assignment/blob/main/First%20colab%20assignment\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 7,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mF7saLuMArdI",
+        "outputId": "38a571e1-862f-406c-ecc2-90d7e3dcfc73"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5\n",
+            "236.20999999999998\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ],
+      "source": [
+        "# add two numbers\n",
+        "2 + 3 # I am adding 2 and 3\n",
+        "\n",
+        "# define a variable\n",
+        "x = 2 + 3\n",
+        "print(x)\n",
+        "\n",
+        "# define another variable\n",
+        "y = 2.3 * 102.7\n",
+        "print(y)\n",
+        "\n",
+        "# add variables\n",
+        "x + y\n",
+        "\n",
+        "# exponentiation\n",
+        "x ** y\n",
+        "\n",
+        "# modular arithmetic\n",
+        "10 % 3 # gives the remainder\n",
+        "\n",
+        "10 // 3"
+      ]
+    }
+  ]
+}
