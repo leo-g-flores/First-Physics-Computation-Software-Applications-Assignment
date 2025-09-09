@@ -1,0 +1,307 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMiEzLWKIoCLZrcEj6P3Q1A",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/leo-g-flores/First-Physics-Computation-Software-Applications-Assignment/blob/main/Pendulum%20example\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "_zNhQ6eK58jT"
+      },
+      "outputs": [],
+      "source": [
+        "# problem solving strategy\n",
+        "#type() --> dir() --> help()--> ? --> ?? --> websearch --> AI --> python documentation\n",
+        "\n",
+        "# objects that we introduced\n",
+        "# builtin functions: core functions in python\n",
+        "# keywords: special named objects in python that cannot be changes/reassigned\n",
+        "# operators, variables, expressions, and comments"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# check built in functions\n",
+        "dir(__builtins__)\n",
+        "help(print)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uplLeBSI7AOc",
+        "outputId": "62977fe2-ca23-42c2-bc64-5fbd81fae097"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Help on built-in function print in module builtins:\n",
+            "\n",
+            "print(*args, sep=' ', end='\\n', file=None, flush=False)\n",
+            "    Prints the values to a stream, or to sys.stdout by default.\n",
+            "\n",
+            "    sep\n",
+            "      string inserted between values, default a space.\n",
+            "    end\n",
+            "      string appended after the last value, default a newline.\n",
+            "    file\n",
+            "      a file-like object (stream); defaults to the current sys.stdout.\n",
+            "    flush\n",
+            "      whether to forcibly flush the stream.\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# check what the keywords\n",
+        "import keyword"
+      ],
+      "metadata": {
+        "id": "C1mST0Ed8hwl"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# getting more information about keywords\n",
+        "# use 'import keyword'\n",
+        "# 'dir(keyword)\n",
+        "# 'keyword.kwlist'"
+      ],
+      "metadata": {
+        "id": "6dgMOIUX9wXt"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# operators, variables, expressions, and comments\n",
+        "# operators:\n",
+        "# arithmetic: '+', '-', '*', '/', '%', '//', '**'\n",
+        "# assignment: '=' (assignment can be paired with arithmetic)\n",
+        "# comparison: '==' check equivalence, '!=' not equal, '<', '>', '<=', '>='"
+      ],
+      "metadata": {
+        "id": "angKRcof-IKX"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_variable = 2.7\n",
+        "print(my_variable)\n",
+        "\n",
+        "my_variable += 1\n",
+        "print(my_variable)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DyO_JHqa-m0O",
+        "outputId": "1eba14fb-5517-4f16-de20-1d5f51957c60"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2.7\n",
+            "3.7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%whos"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "z0BkG0cC-9Dh",
+        "outputId": "2db5d9ef-e00a-49b4-af09-86e68da28a28"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Variable      Type      Data/Info\n",
+            "---------------------------------\n",
+            "keyword       module    <module 'keyword' from '/<...>b/python3.12/keyword.py'>\n",
+            "my_variable   float     3.7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# last time we assigned variable for energy quantities\n",
+        "# define variable\n",
+        "m = 1.0 # mass in kg\n",
+        "v = 1.0 # velocity in m/s\n",
+        "k = 1.0 # force constant in N/m = kg/s^2\n",
+        "x = 1.0 # displacement in m\n",
+        "\n",
+        "# define energies\n",
+        "kinetic_energy = 0.5 * m * v**2 # kinetic energy in Joules\n",
+        "potential_energy = 0.5 * k * x**2 # potential energy in Joules\n",
+        "total_energy = kinetic_energy + potential_energy # total energy in Joules"
+      ],
+      "metadata": {
+        "id": "KTorD1FwA7RD"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# we can alternitavely define a function\n",
+        "def get_potential_energy(k, x):\n",
+        "  \"\"\"\n",
+        "  Calulates the potential energy of a linear mass-spring system.\n",
+        "\n",
+        "  Parameters\n",
+        "  ----------\n",
+        "  k : float\n",
+        "\n",
+        "  return 0.5 * k * x**2"
+      ],
+      "metadata": {
+        "id": "UVdVw5kuB1Y0"
+      },
+      "execution_count": 15,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(get_potential_energy(k, x)) # use preassigned values of k, x\n",
+        "print(get_potential_energy(k = .25, x = 2.7))\n",
+        "print(get_potential_energy(x = -2.7, k= .25))"
+      ],
+      "metadata": {
+        "id": "C3o28tZeCwQs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "get_potential_energy?"
+      ],
+      "metadata": {
+        "id": "1ZfjDbJsDv0c"
+      },
+      "execution_count": 16,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# get potential energy for a rigid pendulum\n",
+        "import math # import the math module to get access to cosine\n",
+        "def get_potential_energy_rigid_pendulum(U_max, theta):\n",
+        "  \"\"\"\n",
+        "  Calculates the potential energy of a rigid pendulum.\n",
+        "\n",
+        "  Parameters\n",
+        "  ----------\n",
+        "  U_max : float\n",
+        "      The maximum potential energy of the pendulum.\n",
+        "  theta : float\n",
+        "      The angle of the pendulum in radians.\n",
+        "\n",
+        "  Returns\n",
+        "  -------\n",
+        "  float\n",
+        "\n",
+        "  Note\n",
+        "  ----\n",
+        "  requires 'import math'\n",
+        "\n",
+        "      The potential energy of the pendulum.\n",
+        "  \"\"\"\n",
+        "  return 0.5 * U_max * (1-math.cos(theta))"
+      ],
+      "metadata": {
+        "id": "yIOQ-VTsD3wH"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "get_potential_energy_rigid_pendulum(1,math.pi)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 309
+        },
+        "id": "-uOANlkcIJtH",
+        "outputId": "07eb0a99-8a42-4685-f19c-52bf817916a6"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'get_potential_energy_rigid_pendulum' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-1663251469.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mget_potential_energy_rigid_pendulum\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mmath\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpi\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'get_potential_energy_rigid_pendulum' is not defined"
+          ]
+        }
+      ]
+    }
+  ]
+}
